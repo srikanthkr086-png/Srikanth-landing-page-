@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sohan's Landing Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .navbar {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 50;
+      transition: background-color 0.4s ease-in-out, padding 0.4s ease-in-out;
+    }
+
+    .navbar-scrolled {
+      background-color: white;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                  0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .navbar-scrolled .nav-link { color: #1f2937; }
+    .navbar-scrolled .nav-link:hover { color: #10b981; }
+    .navbar-scrolled .logo-text { color: #1f2937; }
+    .navbar-scrolled #mobile-menu-button { color: #1f2937; }
+    .navbar-scrolled #mobile-menu-button:hover { color: #10b981; }
+
+    .nav-link {
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 50%;
+      background-color: #10b981;
+      transition: all 0.3s ease-in-out;
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Overlay for Welcome text */
+    .welcome-overlay {
+      background-color: rgba(0, 0, 0, 0.45);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .welcome-text {
+      font-size: 4rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    @media (max-width: 768px) {
+      .welcome-text {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <nav id="navbar" class="navbar py-4">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-white logo-text">Sohan</a>
+      <div class="hidden md:flex space-x-8">
+        <a href="#home" class="nav-link text-white font-medium hover:text-gray-300">Home</a>
+        <a href="#about" class="nav-link text-white font-medium hover:text-gray-300">About</a>
+        <a href="#gallery" class="nav-link text-white font-medium hover:text-gray-300">Gallery</a>
+        <a href="#contact" class="nav-link text-white font-medium hover:text-gray-300">Contact</a>
+      </div>
+      <div class="md:hidden">
+        <button id="mobile-menu-button" class="text-white focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor"
+               viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white py-2">
+      <a href="#home" class="block text-gray-800 hover:bg-gray-200 px-6 py-2">Home</a>
+      <a href="#about" class="block text-gray-800 hover:bg-gray-200 px-6 py-2">About</a>
+      <a href="#gallery" class="block text-gray-800 hover:bg-gray-200 px-6 py-2">Gallery</a>
+      <a href="#contact" class="block text-gray-800 hover:bg-gray-200 px-6 py-2">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ✅ Beach background + Welcome text -->
+  <header id="home" class="relative h-screen bg-cover bg-center flex items-center justify-center text-white"
+          style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80');">
+    <div class="welcome-overlay">
+      <h1 class="welcome-text">WELCOME</h1>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-12">
+    <section id="about" class="py-16">
+      <h2 class="text-4xl font-bold text-center mb-8">About Me</h2>
+      <p class="max-w-3xl mx-auto text-center text-lg">
+        I am a dedicated and passionate developer with a love for creating elegant and efficient solutions.
+        With a strong foundation in modern web technologies, I enjoy turning complex problems into beautiful,
+        intuitive, and user-friendly applications. I'm always eager to learn, grow, and collaborate on exciting new projects.
+      </p>
+    </section>
+
+    <section id="gallery" class="py-16 bg-white rounded-lg shadow-lg">
+      <h2 class="text-4xl font-bold text-center mb-4">Beach Photography Gallery</h2>
+      <p class="text-center text-gray-600 mb-12">
+        A collection of beautiful beaches captured by me.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+        <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md transform hover:scale-105 transition-transform duration-300">
+          <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=600&q=80"
+               alt="Tropical beach with palm trees" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Tropical Paradise</h3>
+            <p class="text-gray-600">Relaxing view of white sand, turquoise water, and lush palm trees.</p>
+            <p class="text-xs text-emerald-500 mt-2">Photo by Sohan</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md transform hover:scale-105 transition-transform duration-300">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80"
+               alt="Clear ocean water and pristine beach" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Azure Waters</h3>
+            <p class="text-gray-600">The incredible clarity of the ocean where the waves meet the pristine shore.</p>
+            <p class="text-xs text-emerald-500 mt-2">Photo by Sohan</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md transform hover:scale-105 transition-transform duration-300">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80"
+               alt="Beach at sunset" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Golden Hour Coast</h3>
+            <p class="text-gray-600">A stunning sunset painting the sky over a quiet, peaceful beach.</p>
+            <p class="text-xs text-emerald-500 mt-2">Photo by Sohan</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-16">
+      <h2 class="text-4xl font-bold text-center mb-8">Contact Me</h2>
+      <p class="max-w-3xl mx-auto text-center text-lg">
+        Have a project in mind or just want to say hello? Feel free to reach out!
+      </p>
+    </section>
+
+    <div class="h-screen"></div>
+  </main>
+
+  <footer class="bg-gray-800 text-white text-center p-4">
+    <p>&copy; 2025 Sohan. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const navbar = document.getElementById('navbar');
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      function handleScroll() {
+        if (window.scrollY > 50) {
+          navbar.classList.add('navbar-scrolled');
+        } else {
+          navbar.classList.remove('navbar-scrolled');
+        }
+      }
+
+      function toggleMobileMenu() {
+        mobileMenu.classList.toggle('hidden');
+      }
+
+      window.addEventListener('scroll', handleScroll);
+      mobileMenuButton.addEventListener('click', toggleMobileMenu);
+
+      const mobileLinks = mobileMenu.getElementsByTagName('a');
+      for (let i = 0; i < mobileLinks.length; i++) {
+        mobileLinks[i].addEventListener('click', function() {
+          if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+/* task1.css content (No <style> tags here) */
+
+/* Custom CSS for transitions and initial state */
+body {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth; 
+}
+
+/* Style for the navigation bar */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    transition: background-color 0.4s ease-in-out, padding 0.4s ease-in-out;
+}
+
+/* Style for the navigation bar when scrolled */
+.navbar-scrolled {
+    background-color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.navbar-scrolled .nav-link {
+    color: #1f2937; /* dark gray */
+}
+
+.navbar-scrolled .nav-link:hover {
+    color: #4f46e5; /* indigo */
+}
+
+.navbar-scrolled .logo-text {
+    color: #1f2937; /* dark gray */
+}
+
+/* Fix for mobile button visibility on scroll */
+.navbar-scrolled #mobile-menu-button {
+    color: #1f2937; /* dark gray */
+}
+
+.navbar-scrolled #mobile-menu-button:hover {
+    color: #4f46e5; /* indigo */
+}
+
+/* Style for navigation links */
+.nav-link {
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 50%;
+    background-color: #4f46e5;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
